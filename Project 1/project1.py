@@ -9,19 +9,36 @@ Description: The code implements a linear congruential random number generator, 
 distribution of numbers on the interval [0, 1).
 '''
 
-#below are the constants used in the formula
-N = 10000 #The norm
-A = 4857 #The adder
-M = 8601 #The multiplier
-# -------------------------------------------
+def main():
+    
+    def RNG():
+        r= [] # list of random numbers
+        #below are the constants used in the formula
+        N = 10000 #The norm
+        A = 4857 #The adder
+        M = 8601 #The multiplier
+        # -------------------------------------------
 
-import time
-S = time.time_ns() - time.process_time_ns()
-#---------------------------------------------
+        import time
+        S = time.time() - time.process_time()
+        #---------------------------------------------
 
-for k in range(10):
-    S = (M * S + A) % N #formula for the RNG
-    r = S / N #r is a decimal number in [0, 1)
-    print('%.4f' %r)
+        for k in range(25):
+            S = (M * S + A) % N #formula for the RNG
+            v = S / N #r is a decimal number in [0, 1)
+            r.append(v)
+        return r
 
+    def die(r):
+        import math
+        print("Die Roll: ")
+        for k in range(25):
+            die = math.floor(6*r[k] + 1)
+            print(die)
+            
 
+    r = RNG()
+    die(r)
+    
+
+main()
