@@ -4,7 +4,7 @@ Name: Jocelyn Espitia
 ID # 014101709
 
 Start Date: 01-27-2020
-End Date:
+End Date: 02-03-2020
 Description: The code implements a linear congruential random number generator, RNG. It will output a uniform 
 distribution of numbers on the interval [0, 1).
 '''
@@ -32,10 +32,10 @@ def die(r):
     print("Die Roll: ")
     for k in range(25):
         die = math.floor(6*r[k] + 1)
-        print(die)
+        print(die, end= ' ')
         
 def coin(r):
-    print("Coin Toss: ")
+    print("\nCoin Toss: ")
     for k in range(25):
         coin = math.floor(2*r[k])
         if coin == 0:
